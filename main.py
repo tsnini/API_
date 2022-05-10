@@ -26,12 +26,12 @@ print(val)
 
 conn = sqlite3.connect("my_database.sqlite")
 cursor = conn.cursor()
-# cursor.execute('''CREATE TABLE currency
-#                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
-#                 Currency_name VARCHAR(50),
-#                 To_Currency_name VARCHAR(100),
-#                 result FLOAT,
-#                 updated_date DATE );''')
+cursor.execute('''CREATE TABLE currency
+                (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                Currency_name VARCHAR(50),
+                To_Currency_name VARCHAR(100),
+                result FLOAT,
+                updated_date DATE );''')
 
 cursor.execute('INSERT INTO currency (Currency_name, To_Currency_name, result, updated_date) VALUES (?, ?, ?, ?)', (From, To, val, date))
 conn.commit()
